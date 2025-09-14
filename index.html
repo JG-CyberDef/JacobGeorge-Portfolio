@@ -8,11 +8,11 @@
     <style>
         /* Global Styles */
         :root {
-            --primary: #2A4D6E;
-            --secondary: #4A8CBA;
-            --accent: #FF6B6B;
-            --light: #F8F9FA;
-            --dark: #212529;
+            --primary: #6B8E7F; /* Sage green */
+            --secondary: #9FB8AD; /* Light sage */
+            --accent: #C17C74; /* Muted terracotta */
+            --light: #F5F5F5; /* Light grey */
+            --dark: #3C3C3C; /* Dark grey */
             --transition: all 0.3s ease;
         }
         
@@ -191,7 +191,7 @@
         }
         
         .story-highlight {
-            background: #f5f7ff;
+            background: #f8faf9;
             padding: 25px;
             border-left: 4px solid var(--secondary);
             margin: 25px 0;
@@ -212,7 +212,7 @@
         
         /* Skills Section */
         #skills {
-            background: linear-gradient(to right, #f5f7ff, #eef2ff);
+            background: linear-gradient(to right, #f8faf9, #f1f5f3);
         }
         
         .skills-container {
@@ -267,7 +267,79 @@
             color: var(--secondary);
         }
         
+        /* Certifications Section */
+        #certifications {
+            background-color: white;
+        }
+        
+        .certifications-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+        
+        .cert-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            max-width: 380px;
+            border: 1px solid #eaeaea;
+        }
+        
+        .cert-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cert-img {
+            height: 180px;
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cert-badge {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: white;
+            text-align: center;
+            line-height: 1.2;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .cert-badge span {
+            display: block;
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+        }
+        
+        .cert-content {
+            padding: 25px;
+        }
+        
+        .cert-content h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .cert-content p {
+            margin-bottom: 20px;
+            color: #666;
+        }
+        
         /* Projects Section */
+        #projects {
+            background: linear-gradient(to right, #f8faf9, #f1f5f3);
+        }
+        
         .projects-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -289,7 +361,7 @@
         
         .project-img {
             height: 200px;
-            background: linear-gradient(45deg, #4A8CBA, #2A4D6E);
+            background: linear-gradient(45deg, var(--primary), var(--secondary));
             display: flex;
             align-items: center;
             justify-content: center;
@@ -425,6 +497,14 @@
                 height: 180px;
                 font-size: 2.5rem;
             }
+            
+            .cert-badge {
+                font-size: 2.8rem;
+            }
+            
+            .cert-badge span {
+                font-size: 1.5rem;
+            }
         }
         
         @media (max-width: 576px) {
@@ -459,6 +539,14 @@
             .btn {
                 padding: 10px 20px;
             }
+            
+            .cert-badge {
+                font-size: 2.2rem;
+            }
+            
+            .cert-badge span {
+                font-size: 1.2rem;
+            }
         }
         
         /* Navigation */
@@ -467,7 +555,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            background: rgba(42, 77, 110, 0.95);
+            background: rgba(107, 142, 127, 0.95);
             backdrop-filter: blur(10px);
             z-index: 1000;
             padding: 15px 0;
@@ -523,7 +611,7 @@
                 inset: 0 0 0 30%;
                 flex-direction: column;
                 padding: min(30vh, 100px) 30px;
-                background: rgba(42, 77, 110, 0.95);
+                background: rgba(107, 142, 127, 0.95);
                 backdrop-filter: blur(10px);
                 z-index: 1000;
                 transform: translateX(100%);
@@ -573,47 +661,45 @@
             transform: scale(1.1);
         }
         
-        /* Certification Section */
-        .certifications {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            margin-top: 40px;
-        }
-        
-        .cert-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
-            transition: var(--transition);
-            max-width: 350px;
-        }
-        
-        .cert-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-        
-        .cert-img {
-            height: 180px;
-            background: linear-gradient(45deg, #4A8CBA, #2A4D6E);
-            display: flex;
+        /* Modal for certificate */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 2.5rem;
         }
         
-        .cert-content {
-            padding: 20px;
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            width: 90%;
             text-align: center;
+            position: relative;
         }
         
-        .cert-content h3 {
-            color: var(--primary);
-            margin-bottom: 10px;
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        .modal-certificate {
+            margin-top: 20px;
+            padding: 20px;
+            background: #f8faf9;
+            border-radius: 8px;
+            text-align: left;
         }
     </style>
 </head>
@@ -731,20 +817,42 @@
             <div class="section-title">
                 <h2>Certifications</h2>
             </div>
-            <div class="certifications">
-                <div class="cert-card">
+            <div class="certifications-container">
+                <div class="cert-card" id="csa-cert">
                     <div class="cert-img">
-                        <i class="fas fa-certificate"></i>
+                        <div class="cert-badge">
+                            C S A
+                            <span>Certified SOC Analyst</span>
+                        </div>
                     </div>
                     <div class="cert-content">
                         <h3>Certified SOC Analyst (CSA)</h3>
-                        <p>EC-Council</p>
+                        <p>EC-Council | Issued: 2023</p>
                         <p>Validated knowledge in SOC operations, incident response, and threat management</p>
+                        <button class="btn view-cert-btn">View Certificate</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <!-- Certificate Modal -->
+    <div class="modal" id="certificate-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Certified SOC Analyst (CSA)</h2>
+            <p>EC-Council Certification</p>
+            <div class="modal-certificate">
+                <p><strong>Certification Number:</strong> 07FE19KHD2E3</p>
+                <p>This is to acknowledge that <strong>Jacob George</strong> has successfully passed the examination and has met all the necessary criteria for an official certification.</p>
+                <p><strong>Issued on:</strong> 2023</p>
+                <p><strong>Renewable on:</strong> 2025</p>
+                <p>EC-Council certification, subject to the candidate meeting continuing professional education (CPE) requirements and is current on their annual CE fee.</p>
+                <p>The issue date will reflect the original grant date.</p>
+                <p><em>Jay Bavisi, President</em></p>
+            </div>
+        </div>
+    </div>
 
     <!-- Projects Section -->
     <section id="projects">
@@ -877,6 +985,25 @@
                     });
                 }
             });
+        });
+        
+        // Certificate Modal
+        const modal = document.getElementById('certificate-modal');
+        const viewCertBtn = document.querySelector('.view-cert-btn');
+        const closeModal = document.querySelector('.close-modal');
+        
+        viewCertBtn.addEventListener('click', () => {
+            modal.style.display = 'flex';
+        });
+        
+        closeModal.addEventListener('click', () => {
+            modal.style.display = 'none';
+        });
+        
+        window.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                modal.style.display = 'none';
+            }
         });
     </script>
 </body>
