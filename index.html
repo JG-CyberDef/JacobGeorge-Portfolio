@@ -572,6 +572,49 @@
             background: var(--primary);
             transform: scale(1.1);
         }
+        
+        /* Certification Section */
+        .certifications {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .cert-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: var(--transition);
+            max-width: 350px;
+        }
+        
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cert-img {
+            height: 180px;
+            background: linear-gradient(45deg, #4A8CBA, #2A4D6E);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+        
+        .cert-content {
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .cert-content h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
     </style>
 </head>
 <body>
@@ -585,6 +628,7 @@
             <ul class="nav-links" id="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#certifications">Certifications</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -603,13 +647,12 @@
             </label>
             <div class="header-content">
                 <h1>Jacob George</h1>
-                <h2>Cybersecurity Analyst | SOC Aspirant</h2>
+                <h2>Cybersecurity Analyst | SOC Analyst</h2>
                 <p>Protecting digital infrastructure with a unique perspective from engineering</p>
                 <div class="social-links">
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fas fa-envelope"></i></a>
+                    <a href="https://github.com/JG-CyberDef" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/jacobkallumkal" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:jacobgeorge880@gmail.com"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
@@ -682,6 +725,27 @@
         </div>
     </section>
 
+    <!-- Certifications Section -->
+    <section id="certifications">
+        <div class="container">
+            <div class="section-title">
+                <h2>Certifications</h2>
+            </div>
+            <div class="certifications">
+                <div class="cert-card">
+                    <div class="cert-img">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Certified SOC Analyst (CSA)</h3>
+                        <p>EC-Council</p>
+                        <p>Validated knowledge in SOC operations, incident response, and threat management</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
     <section id="projects">
         <div class="container">
@@ -701,22 +765,7 @@
                             <span class="project-tag">Splunk</span>
                             <span class="project-tag">Nmap</span>
                         </div>
-                        <a href="#" class="btn">View Project</a>
-                    </div>
-                </div>
-                <div class="project-card">
-                    <div class="project-img">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <div class="project-content">
-                        <h3>Network Vulnerability Scanner</h3>
-                        <p>Built a Python-based tool to scan networks for vulnerabilities and generate detailed security reports.</p>
-                        <div class="project-tags">
-                            <span class="project-tag">Python</span>
-                            <span class="project-tag">Nmap</span>
-                            <span class="project-tag">Security</span>
-                        </div>
-                        <a href="#" class="btn">View Project</a>
+                        <a href="https://github.com/JG-CyberDef/Project-Cybersecurity_Home_Lab" class="btn" target="_blank">View Project</a>
                     </div>
                 </div>
                 <div class="project-card">
@@ -731,7 +780,7 @@
                             <span class="project-tag">THM</span>
                             <span class="project-tag">Hands-on</span>
                         </div>
-                        <a href="#" class="btn">View Profile</a>
+                        <a href="https://tryhackme.com/p/marvinjohn264" class="btn" target="_blank">View Profile</a>
                     </div>
                 </div>
             </div>
